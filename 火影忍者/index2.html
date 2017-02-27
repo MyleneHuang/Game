@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>奖励</title>
+	    <meta name="description" content="">
+	    <meta name="keywords" content="">
+	    <meta name="apple-mobile-web-app-capable" content="yes"/>
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	    <meta name="format-detection" content="telephone=no"/>
+	    <meta name="format-detection" content="email=no"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+	    <object type="text/x-scriptlet" data="header.html" width=100% height=44></object>
+        <object type="text/x-scriptlet" data="loading.html"  id="loadingOBJ" width=100% height=100% style="position:fixed;z-index:9999;display:none;"></object>
+	    <link rel="stylesheet" type="text/css" href="index.css" media="all">
+    </head>
+    <body>
+        <div class="reward">
+           <span class="am-pr-10">恭喜你，你有机会获得XX奖励</span>
+           <button type="button" onclick="loadDoc(1)" id="Btn3">点击</button>
+        </div>
+        <div class="reward">
+           <span class="am-pr-10">恭喜你，你有机会获得XX奖励</span>
+           <button type="button" onclick="loadDoc(2)" id="Btn4">点击</button>
+        </div>
+        <div class="reward">
+           <span class="am-pr-10">恭喜你，你有机会获得XX奖励</span>
+           <button type="button" onclick="loadDoc(3)" id="Btn5">点击</button>
+        </div>
+        <!--弹出层-->
+        <div class="dialogue" id="dialogue"></div>
+        <div class="pup" id="pup">
+            <img alt="" id="pupImg">
+            <div class="delete clearfloat">
+                <button type="button" class="spot">点击</button>
+                <button type="button" class="cancel" id="cancel">取消</button>
+            </div>
+        </div>
+    </body>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/config.js"></script>
+    <script>
+      
+        cancel.onclick = function(){
+            pup.style.display = "none";
+            dialogue.style.display = "none";
+        }
+
+        function loadDoc (type) {
+            $('#loadingOBJ').css('display', 'block');
+            $.ajax({
+                type:"get",
+                url:url + 'searchcard/'+type,
+                dataType:"json",
+                success:function(data){
+                    $('#loadingOBJ').css('display', 'none');
+                    if (data.success) {
+                        $('#pupImg').attr('src',url + data.data.img);
+                        var dialogue = document.getElementById("dialogue");
+                        var pup = document.getElementById("pup");
+                        var cancel= document.getElementById("cancel");
+                        var Btn3 = document.getElementById("Btn3");
+                        var Btn4 = document.getElementById("Btn4");
+                        var Btn5 = document.getElementById("Btn5");
+                        pup.style.display = "block";
+                        dialogue.style.display = "block";
+                    } else {
+                        alert(data.msg);
+                    }
+                    
+                    
+                   
+
+                }
+            })
+        }
+        
+    </script>
+</html>

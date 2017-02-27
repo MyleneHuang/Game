@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>登录注册</title>
+	    <meta name="description" content="">
+	    <meta name="keywords" content="">
+	    <meta name="apple-mobile-web-app-capable" content="yes"/>
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	    <meta name="format-detection" content="telephone=no"/>
+	    <meta name="format-detection" content="email=no"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
+        <object type="text/x-scriptlet" data="loading.html"  id="loadingOBJ" width=100% height=100% style="position:fixed;z-index:9999;display:none;"></object>
+	    <link rel="stylesheet" type="text/css" href="index.css" media="all">	    
+    </head>
+    <body>
+        <div class="Login">
+            <input type="text" placeholder="输入用户名" class="LoginTxt" id="usename"> 
+            <input type="text" placeholder="输入密码"  class="LoginTxt" id="password"> 
+            <div class="register clearfloat">
+                <button type="button" class="Btn1" id="Btn1" onclick="action('1')">登录</button>
+                <button type="button" class="Btn2" id="Btn2" onclick="action('2')">注册</button>
+            </div>
+        </div>
+    </body>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/config.js"></script>
+    <script>
+        function action(type) {
+            var usename = document.getElementById('usename').value;
+            var password = document.getElementById('password').value;
+            if(type == 1){
+               var actionUrl  = url + 'login/' 
+            }else{
+               var actionUrl = url + 'registered/'
+            }
+
+            $('#loadingOBJ').css('display', 'block');
+            $.ajax({
+                type:"get",
+                url:actionUrl+ usename + "/" + password,
+                dataType:"json",
+                success:function(data){
+                  $('#loadingOBJ').css('display', 'none');
+                  if (data.success) {
+                    if(type == 1) {
+                        window.location.href = "index.html";
+                    }else {
+                        alert('注册成功');
+                    }
+                  }else {
+                    alert(data.msg);
+                  }
+                }
+            })
+        }
+        
+    </script>
+</html>

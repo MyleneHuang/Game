@@ -1,0 +1,151 @@
+/* 
+* @Author: Administrator
+* @Date:   2017-02-24 22:06:25
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-02-27 16:37:21
+*/
+body,div,dl,dt,dd,ul,li,h1,h2,h3,h4,h5,h6,form,a,p,textarea { 
+     margin: 0;
+     padding: 0; 
+     font-family: "\5FAE\8F6F\96C5\9ED1", Arial, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+    }
+ul,ol,li{ 
+    list-style: none;
+}
+body{ 
+    overflow-x: hidden;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust:none;
+}
+html{
+	height: 100%;
+}
+input,select,button{ 
+    -webkit-appearance: none; 
+    border: 0; 
+    border-radius: 0; 
+    outline: none;
+}
+a{ 
+    text-decoration: none;
+    display: block; 
+    color: #FFF;
+}
+img{ 
+    border: 0;
+    display: block;
+}
+.clearfloat:after{ 
+    clear: both; 
+    display: block; 
+    content: "";
+    height: 0; 
+    overflow: hidden;
+}
+.figure{
+	margin-top:20px;
+}
+.person{
+	width:25%;
+	float: left;
+	padding-bottom: 10px;
+}
+.person img{
+	width:80%;
+	padding-left: 10%;
+}
+.btn{
+	margin-top:20px;
+}
+.click{
+	float: left;
+	width: 25%;
+	padding-bottom: 10px;
+}
+.ClickBtn{
+	display: block;
+	height:40px;
+	width:80%;
+	margin: auto;
+	background-color: red;
+	border-radius: 25px;
+}
+.reward{
+	font-size:14px;
+	padding:15px;
+}
+.am-pr-10{
+	padding-right: 10px;
+}
+.dialogue{
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 10600;
+    display: none;
+}
+.pup{
+	position: absolute;
+    left: 0;
+    top:50px;
+    z-index: 11000;
+    width: 100%;
+    display: none;
+}
+.pup img{
+	margin: 0 auto;
+    width: 200px;
+    height: 300px;
+}
+.delete{
+	width:200px;
+	margin:0 auto;
+	margin-top:20px;
+}
+.spot,.cancel{
+	padding:10px;
+	width:80px;
+	background-color: #fff;
+	text-align: center;
+}
+.spot{
+	float: left;
+}
+.cancel{
+	float: right;
+}
+.Login{
+	padding-top: 10px;
+	font-size: 14px;
+}
+.LoginTxt{
+	width:200px;
+	padding:10px 5px;
+	margin:0 auto;
+	margin-bottom: 10px;
+	display: block;
+	border:1px solid #ccc;
+	border-radius: 5px;
+}
+.register{
+	width:200px;
+	margin:0 auto;
+}
+.Btn1,.Btn2{
+	padding:5px;
+	width:80px;
+	text-align: center;
+}
+.Btn1{
+	float: left;
+}
+.Btn2{
+	float: right;
+}
